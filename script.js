@@ -45,7 +45,19 @@ const renderGifts = () => {
 
 //Update
 const updateGift = (index) => {
- 
+    console.log("update gift clicked");
+    console.log(index);
+
+    let item_name = prompt("Enter Name of Item: ");
+    let price = prompt("What is the price of the item?");
+    let gift_for = prompt("Who is this gift for?");
+
+    //add to state
+    state.gifts[index].item_name = item_name;
+    state.gifts[index].item_price = price;
+    state.gifts[index].item_for = gift_for;
+
+    render();
 };
 
 
