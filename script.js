@@ -5,7 +5,7 @@ let gift1 = {item_name: "Teddy Bear",
 
 //Create state
 let state = {
-    headerText: "Gifts",
+    headerText: "Christmas Gifts",
     gifts: [gift1],
 };
 
@@ -33,10 +33,11 @@ const renderGifts = () => {
     //loop over every item
     state.gifts.forEach((gift, index)=> {
         htmlString += `<div class='gift'>
-                        <div onclick='updateGift(${index})'>${index+1}) ${gift.item_name} <br/>
+                        <div class='gift-item' onclick='updateGift(${index})'>${index+1}) ${gift.item_name} <br/>
                         Price: $${gift.item_price} <br/>
                         Gift For: ${gift.item_for}
                         </div>
+                        <button class='btn btn-warning btn-lg' id='delete' onclick='deleteGift(${index})'>delete</button>
                         </div>`;
     });
     htmlString += `</div>`;
@@ -60,13 +61,28 @@ const updateGift = (index) => {
     render();
 };
 
+//Delete
+const deleteGift = (index) => {
+    console.log(index);
+    console.log("delete called");
+
+    //delete gift
+    const filteredGift = state.gifts.filter((gift, currentIndex)=>{
+        return currentIndex !== index;
+    });
+
+    state.gifts = filteredGift;
+
+    render();
+};
+
 
 //render method
 const render = () =>{
     console.log("render called");
     let root = document.getElementById("root");
     let htmlString = `<h1>${state.headerText}</h1>`;
-    htmlString += `<button id='add' onclick='addGift()'>add Gift</button>`;
+    htmlString += `<button class='btn btn-success btn-lg' id='add' onclick='addGift()'>add Gift</button>`;
 
     htmlString += renderGifts();
     root.innerHTML = htmlString;

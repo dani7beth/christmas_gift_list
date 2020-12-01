@@ -1,0 +1,30 @@
+/* Color Pallet
+-----------------
+ red = #aa3a3a;
+green = #a4b787;
+white = #f4f4f4;
+yellow = #f8e4b7;
+ */
+body{
+    background-color: #aa3a3a;
+    color: #a4b787;
+    font-family: 'Montserrat';
+    font-size: 2rem;
+}
+h1{
+     font-family: 'Yellowtail';
+     font-size: 7rem;
+     color: #f4f4f4;
+     text-align: center;
+}
+#add{
+    margin: 7%;
+}
+#delete{
+    margin-left: 7%;
+}
+.gift-item{
+    padding: 7%;
+}
+
+ 
